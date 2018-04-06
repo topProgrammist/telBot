@@ -9,7 +9,7 @@ from flask import Flask, request
 # -------- variables path --------
 
 # если в окуржении есть переменная HEROKU, значит получаем токен из переменной окружения
-TOKEN = '556706497:AAE7dmpkiBwYDBr1DfxGWu9vYatGUI2Kt9Y'
+TOKEN = '552312159:AAG07KrtPkYeN9gOaxoYxHBn7DP3JqBh7mc'
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
