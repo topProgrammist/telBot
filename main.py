@@ -405,7 +405,7 @@ def get_next_fixed_publication(message: types.Message):
 
 # если в окуржении есть переменная HEROKU, значит поднимаем сервер
 # иначе запускаем прослушку
-if 'HEROKU' in list(os.environ.keys()):
+#if 'HEROKU' in list(os.environ.keys()):
     @server.route('/' + TOKEN, methods=['POST'])
     def get_message():
         bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
@@ -422,6 +422,6 @@ if 'HEROKU' in list(os.environ.keys()):
     if __name__ == '__main__':
         db_access.init_db()
         server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
-else:
-    bot.remove_webhook()
-    bot.polling(True)
+#else:
+#    bot.remove_webhook()
+#    bot.polling(True)
