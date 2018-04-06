@@ -406,6 +406,7 @@ def get_next_fixed_publication(message: types.Message):
 # если в окуржении есть переменная HEROKU, значит поднимаем сервер
 # иначе запускаем прослушку
 #if 'HEROKU' in list(os.environ.keys()):
+TOKEN = '552312159:AAG07KrtPkYeN9gOaxoYxHBn7DP3JqBh7mc'
     @server.route('/' + TOKEN, methods=['POST'])
     def get_message():
         bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
