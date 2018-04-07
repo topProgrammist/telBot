@@ -415,12 +415,12 @@ def get_next_fixed_publication(message: types.Message):
     @server.route('/')
     def webhook():
         bot.remove_webhook()
-        bot.set_webhook(url='https://tgbot228.herokuapp.com/' + TOKEN)
+        bot.set_webhook(url='https://tgbot228.herokuapp.com/550361628:AAEh5F7rY-9Cxre0ZYvv4lwMKvtr8V3M7Zs')
         return '!', 200
 
 
     if __name__ == '__main__':
-  #      db_access.init_db()
+        db_access.init_db()
         server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 #else:
  #   bot.remove_webhook()
