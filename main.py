@@ -9,7 +9,12 @@ from flask import Flask, request
 # -------- variables path --------
 
 # если в окуржении есть переменная HEROKU, значит получаем токен из переменной окружения
-TOKEN = '550361628:AAEh5F7rY-9Cxre0ZYvv4lwMKvtr8V3M7Zs'
+if 'HEROKU' in list(os.environ.keys()):
+    TOKEN = str(os.environ.get('TOKEN'))
+# иначе импортируем его из скрытого в файлы в папке проекта
+else:
+    import token_key
+    TOKEN = token_key.token
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
@@ -415,7 +420,7 @@ if 'HEROKU' in list(os.environ.keys()):
     @server.route('/')
     def webhook():
         bot.remove_webhook()
-        bot.set_webhook(url='https://tgbot228.herokuapp.com/550361628:AAEh5F7rY-9Cxre0ZYvv4lwMKvtr8V3M7Zs')
+        bot.set_webhook(url='https://brand-bot.herokuapp.com/' + TOKEN)
         return '!', 200
 
 
