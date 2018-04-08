@@ -425,7 +425,7 @@ if 'HEROKU' in list(os.environ.keys()):
 
 
     if __name__ == '__main__':
-        db_access.init_db()
+    #    db_access.init_db()
         server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 else:
     bot.remove_webhook()
