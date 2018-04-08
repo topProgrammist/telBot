@@ -420,7 +420,7 @@ if 'HEROKU' in list(os.environ.keys()):
     @server.route('/')
     def webhook():
         bot.remove_webhook()
-        bot.set_webhook(url='https://brand-bot.herokuapp.com/' + TOKEN)
+        bot.set_webhook(url='https://tg-bot-288.herokuapp.com/' + TOKEN)
         return '!', 200
 
 
