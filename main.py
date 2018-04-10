@@ -18,9 +18,7 @@ else:
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
-ADMIN_NIKITA_ID = 450048975
-ADMIN_OGANES_ID = 291826906
-ADMIN_GERMAN_ID = 410634632
+ADMIN_ID = 428162145
 
 greeting_text = '*Добро пожаловать, модник!*😎🤙🏼\n\nДля того, чтобы опубликовать свой рарный айтем нужно быть ' \
                 'подписанным на наш канал!\n\n👉️ *@BrandPlace* 👈️ '
@@ -145,9 +143,7 @@ def check_username(message: types.Message):
 
 
 def send_info_to_admins(text: str):
-    bot.send_message(ADMIN_OGANES_ID, text, parse_mode='Markdown')
-    bot.send_message(ADMIN_GERMAN_ID, text, parse_mode='Markdown', disable_notification=True)
-    bot.send_message(ADMIN_NIKITA_ID, text, parse_mode='Markdown')
+    bot.send_message(ADMIN_ID, text, parse_mode='Markdown')
 
 
 @bot.message_handler(content_types=['photo', 'text'], func=lambda message: db_access.get_user_state(message.from_user.id) == states.WRITE_TEXT_FOR_POST)
@@ -300,9 +296,7 @@ def parse_links(string: str):
 
 @bot.message_handler(commands=['admin'])
 def admin_greeting(message: types.Message):
-    if message.from_user.id == ADMIN_NIKITA_ID or \
-            message.from_user.id == ADMIN_OGANES_ID or \
-            message.from_user.id == ADMIN_GERMAN_ID:
+    if message.from_user.id == ADMIN_ID:
         bot.send_message(message.from_user.id, 'Приветствую тебя, мой *повелитель* 🙌\n\nТы находишься в админ-панеле '
                                                'бота *BrandBot*\n\nP.S. Функционал еще будет расширяться😏',
                          parse_mode='Markdown', reply_markup=get_admin_panel_markup())
@@ -312,9 +306,7 @@ def admin_greeting(message: types.Message):
 
 
 @bot.message_handler(func=lambda message: message.text == '✅ Следующая публикация 👉'
-                     and (message.from_user.id == ADMIN_NIKITA_ID or
-                          message.from_user.id == ADMIN_OGANES_ID or
-                          message.from_user.id == ADMIN_GERMAN_ID))
+                     and (message.from_user.id == ADMIN_ID))
 def get_next_publication(message: types.Message):
     post = db_access.get_post()
     if post is not None:
@@ -347,9 +339,7 @@ def get_next_publication(message: types.Message):
 
 
 @bot.message_handler(func=lambda message: message.text == '✅ Следующая закрепленная публикация 👉'
-                     and (message.from_user.id == ADMIN_NIKITA_ID or
-                          message.from_user.id == ADMIN_OGANES_ID or
-                          message.from_user.id == ADMIN_GERMAN_ID))
+                     and (message.from_user.id == ADMIN_ID))
 def get_next_fixed_publication(message: types.Message):
     post = db_access.get_fixed_post()
     if post is not None:
@@ -378,9 +368,7 @@ def get_next_fixed_publication(message: types.Message):
 
 
 @bot.message_handler(func=lambda message: message.text == '✅ Следующая публикация вне очереди 👉'
-                     and (message.from_user.id == ADMIN_NIKITA_ID or
-                          message.from_user.id == ADMIN_OGANES_ID or
-                          message.from_user.id == ADMIN_GERMAN_ID))
+                     and (message.from_user.id == ADMIN_ID))
 def get_next_fixed_publication(message: types.Message):
     post = db_access.get_out_of_turn_post()
     if post is not None:
