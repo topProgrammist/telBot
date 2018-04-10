@@ -18,7 +18,7 @@ else:
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
-ADMIN_ID = 428162145
+ADMIN_ID = 243041479
 
 greeting_text = '*Добро пожаловать, модник!*😎🤙🏼\n\nДля того, чтобы опубликовать свой рарный айтем нужно быть ' \
                 'подписанным на наш канал!\n\n👉️ *@BrandPlace* 👈️ '
