@@ -61,6 +61,8 @@ def greeting(message: types.Message):
     url_button = types.InlineKeyboardButton(text="Подписаться на топ-канал", url="https://t.me/brandplace")
     keyboard.add(url_button)
     bot.send_message(message.from_user.id, greeting_text, reply_markup=get_greeting_markup(),
+                     parse_mode='Markdown')
+    bot.send_message(message.from_user.id, '',
                      parse_mode='Markdown', reply_markup=keyboard)
 
 
