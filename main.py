@@ -21,7 +21,7 @@ server = Flask(__name__)
 ADMIN_ID = 243041479
 
 greeting_text = '*Добро пожаловать, модник!*😎🤙🏼\n\nДля того, чтобы опубликовать свой рарный айтем нужно быть ' \
-                'подписанным на наш канал!\n\n👉️ *@BrandPlace* 👈️ '
+                'подписанным на наш канал!\n\n'
 
 
 # -------- end of variables path --------
@@ -62,7 +62,7 @@ def greeting(message: types.Message):
     keyboard.add(url_button)
     bot.send_message(message.from_user.id, greeting_text, reply_markup=get_greeting_markup(),
                      parse_mode='Markdown')
-    bot.send_message(message.from_user.id, ' ы',
+    bot.send_message(message.from_user.id, ' ыываы',
                      parse_mode='Markdown', reply_markup=keyboard)
 
 
