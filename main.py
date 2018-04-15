@@ -62,7 +62,7 @@ def greeting(message: types.Message):
     keyboard.add(url_button)
     bot.send_message(message.from_user.id, greeting_text, reply_markup=get_greeting_markup(),
                      parse_mode='Markdown')
-    bot.send_message(message.from_user.id, ' ыываы',
+    bot.send_message(message.from_user.id, ' @toptovarchannel',
                      parse_mode='Markdown', reply_markup=keyboard)
 
 
